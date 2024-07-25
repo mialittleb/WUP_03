@@ -16,13 +16,23 @@ davisdata <- read.csv(file="UCDavis.csv")
 ```
 
 # Introduction
- Our Goal is to answer this question Is there a difference between the alcohol consumed between the row
+ Our Goal is to answer this question Is there a difference between the alcohol consumed between the row you sit in?
 
 The data came from UCDavis in the year...
 
 $H_0$: There is no difference between the average number of drinks imbibed between people conditioned on the row they sit in.
 
 $H_A$: The average number drinks is different between at least two rows.
+
+
+
+
+# Methods 
+In the data set davisdata seat is a categorical variable, alcohol is numerical   
+
+We try to predict alcohol based ~ Seat.
+
+
 
 ## you choose to sit in??
 

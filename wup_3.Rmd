@@ -88,7 +88,7 @@ In the data set davisdata seat is a categorical variable, alcohol is numerical.
 We used Numerical ~ Cat helper file to predict alcohol ~ seat
 P-value is 0.0000116 less than 0.05 so we reject the null hypothesis.
 There is a difference in alcohol consumption based on where people sit in class.
-The average number drinks is different between at least two rows.
+The average number drinks is different between at least two rows.      
 
 
 

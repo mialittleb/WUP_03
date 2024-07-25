@@ -30,14 +30,13 @@ $H_A$: The average number drinks is different between at least two rows.
 # Methods 
 In the data set davisdata seat is a categorical variable, alcohol is numerical   
 
-We try to predict alcohol based ~ Seat.
+We try to predict alcohol based ~ Seat. So we use the Numerical ~ Cat.rmd helper file.
 
+# Results
 
+## Descriptive results
 
-## you choose to sit in??
-
-## Now with ggplot - first select the basic data
-
+### Graphical summary
 ```{r}
 basicCN <- ggplot(davisdata,aes(y=alcohol,x=Seat))
 ```
@@ -46,18 +45,53 @@ basicCN <- ggplot(davisdata,aes(y=alcohol,x=Seat))
 ```{r}
 basicCN + geom_boxplot()
 ```
-  
-  
-### get fancy  
+This boxplot shows that your consumption of alcohol has almost 0 effect on where you sit in the class...
+
+
+
+### Numerical summary
 
 ```{r}
-basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='errorbar') + labs(title="Fancy notch boxplot \n with 2 lines")
+favstats(alcohol~Seat,data=ucdavis1)
 ```
+The Numerical summary shows that alcohol consumption has very little effect on where you sit in class. 
 
-## Numerical Summarys 
 
-## Inferential Tests
 
-## Conclusions
+
+### Inferential results
+
+
+
+
+
+
+```{r}
+model1 <- aov(alcohol~Seat,data=davisdata)
+summary.aov(model1)
+```
+The p-value is 0.0000116 less than 0.05 so we reject the null hypothesis. 
+There is a difference in alcohol consumption based on where people sit in class.
+
+## When significant follow up with TukeyHSD  
+
+```{r}
+plot(TukeyHSD(model1))
+```
+The turkeyhsd model shows the differences in seating levels 
+The difference in seating levels is 5.
+
+
+## Conclusions 
+
+In the data set davisdata seat is a categorical variable, alcohol is numerical.
+We used Numerical ~ Cat helper file to predict alcohol ~ seat
+P-value is 0.0000116 less than 0.05 so we reject the null hypothesis.
+There is a difference in alcohol consumption based on where people sit in class.
+The average number drinks is different between at least two rows.
+
+
+
+
 
 
